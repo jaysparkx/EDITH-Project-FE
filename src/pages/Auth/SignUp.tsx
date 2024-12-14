@@ -267,9 +267,11 @@ const SignUp = () => {
             disabled={isGoogleLoading}
             onClick={() => {
               setIsGoogleLoading(true);
+              const additionalData = { referralCode: localStorage.getItem('EDITH_code') || '' };
+              const queryString = new URLSearchParams(additionalData).toString();
               window.location.href = `${
                 import.meta.env.VITE_BACKEND_URL
-              }/auth/google`;
+              }/auth/google?${queryString}`;
             }}
             className="!bg-buttonTertiary hover:!bg-buttonQuaternary h-10 disabled:!bg-buttonQuaternary !text-fontSecondary"
           >
@@ -310,9 +312,11 @@ const SignUp = () => {
             disabled={isTwitterLoading}
             onClick={() => {
               setIsTwitterLoading(true);
+              const additionalData = { referralCode: localStorage.getItem('EDITH_code') || '' };
+              const queryString = new URLSearchParams(additionalData).toString();
               window.location.href = `${
                 import.meta.env.VITE_BACKEND_URL
-              }/auth/twitter`;
+              }/auth/twitter?${queryString}`;
             }}
             className="!bg-buttonTertiary hover:!bg-buttonQuaternary h-10 disabled:!bg-buttonQuaternary !text-fontSecondary"
           >
